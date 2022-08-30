@@ -62,4 +62,4 @@ const toggleLoader = (isLoading) =>{
         loader.classList.add('d-none');
     }
 }
-loadPhones('m')
+loadPhones('m');
