@@ -9,13 +9,14 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
     <style>
         #no_found_message{
-            font-size: 5rem;
+            font-size: 1.5rem;
             opacity: .3;
+            color: red;
         }
     </style>
 </head>
 
-<body>
+<body onload="onLoading()">
     <header class="sticky-top mb-5 shadow-sm">
         <nav class="navbar navbar-expand-lg bg-light">
             <div class="container mx-auto container-fluid">
@@ -26,16 +27,16 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
-                            <a onclick="showiPhone('iPhone')" class="nav-link px-4" href="#">iPnone</a>
+                            <a onclick="showPhone('iPhone')" class="nav-link px-4" href="#">iPnone</a>
                         </li>
                         <li class="nav-item">
-                            <a onclick="showiPhone('Samsung')" class="nav-link px-4" href="#">Samsung</a>
+                            <a onclick="showPhone('Samsung')" class="nav-link px-4" href="#">Samsung</a>
                         </li>
                         <li class="nav-item">
-                            <a onclick="showiPhone('Oppo')" class="nav-link px-4" href="#">Oppo</a>
+                            <a onclick="showPhone('Oppo')" class="nav-link px-4" href="#">Oppo</a>
                         </li>
                         <li class="nav-item">
-                            <a onclick="showiPhone('Huawei')" class="nav-link px-4" href="#">Huawei</a>
+                            <a onclick="showPhone('Huawei')" class="nav-link px-4" href="#">Huawei</a>
                         </li>
                     </ul>
                     <div class="d-flex" role="search">
@@ -53,6 +54,10 @@
             </div>
             
             <h1 id="no_found_message" class="text-center "></h1>
+
+            <div id="show_all" class="text-center my-4 d-none">
+                <button id="btn_show_all" class="btn btn-danger">Show All</button>
+            </div>
         </section>
         <section id="loader" class="d-none">
             <div style="width: 100%; height: 70vh;" class="d-flex justify-content-center align-items-center text-center">
@@ -60,6 +65,29 @@
                     <span class="visually-hidden">Loading...</span>
                 </div>
             </div>
+        </section>
+        <section>
+        
+        
+        <!-- Modal -->
+        <div class="modal fade" id="phoneDetailsModal" tabindex="-1" aria-labelledby="phoneDetailsModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h4 class="me-3">Brand : </h4>
+                            <h5 id="phoneDetailsModalLabel">Brand Name</h5>
+                        </div>
+                    </div>
+                    <div id="modal_body" class="modal-body">
+
+                    </div>
+                    <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         </section>
     </main>
 
